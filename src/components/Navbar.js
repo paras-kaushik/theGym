@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useLogout } from '../hooks/useLogout'
+import Avatar from "./Avatar"
 
 // styles
 import styles from './Navbar.module.css'
@@ -12,7 +13,9 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <ul>
-        <li className={styles.title}>AMAZINO FITNESS</li>
+        <li className={styles.title}>
+          <Link to="/">AMAZINO FITNESS</Link>
+        </li>
 
         {!user && (
           <>
@@ -23,8 +26,13 @@ export default function Navbar() {
 
         {user && (
           <>
-            <li>hello, {user.displayName}</li>
-            <li>
+            <div className="btn" style={{marginRight:'2rem'}}>
+              <li ><Link to="/allUsers">All Gym Members</Link></li>
+            </div>
+
+            <li><Avatar name={user.displayName} src={user.photoURL} /></li>
+
+            <li style={{marginLeft:'2rem'}}>
               <button className="btn" onClick={logout}>Logout</button>
             </li>
           </>

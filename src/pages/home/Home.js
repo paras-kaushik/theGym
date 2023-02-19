@@ -11,7 +11,7 @@ import TransactionList from './TransactionList'
 export default function Home() {
   const { user } = useAuthContext();
   const { documents, error } = useCollection(
-    'transactions', ["uid", "==", user.uid], ['createdAt', 'desc']
+    'transactions', ["uid", "==", user.uid], ['createdAt', 'asc']
   );
   //const { documents, error } = useCollection('transactions');
 
@@ -25,5 +25,6 @@ export default function Home() {
         <TransactionForm uid={user.uid} />
       </div>
     </div>
+
   )
 }

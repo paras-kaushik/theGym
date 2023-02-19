@@ -30,11 +30,13 @@ export const useSignup = () => {
       await res.user.updateProfile({ displayName, photoURL:imgURL });
 
       // create a user document
-     // await projectFirestore.collection('users').add() -> dont use this here
-     await projectFirestore.collection('users').doc(res.user.uid).set({
+    // await projectFirestore.collection('users').add() -> dont use this here
+
+    await projectFirestore.collection('users').doc(res.user.id).set({
+      online:true,
       displayName,
-      photoURL:imgURL,
-     });
+      photoURL:imgURL
+    });
       // we want document id to be id of the username
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })
@@ -47,7 +49,7 @@ export const useSignup = () => {
     catch(err) {
 
       if (!isCancelled) {
-        setError(err.message)
+        setError(err.message+"for paras ")
         setIsPending(false)
       }
     }

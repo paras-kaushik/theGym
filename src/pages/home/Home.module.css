@@ -53,10 +53,15 @@
 .sidebar aside li {
   margin: 10px;
 }
+.excercise-info > p {
+
+  flex: 1 1 33%;
+  text-align: right;
+}
 
 /* transactions */
 .transactions li {
-  margin: 30px auto;
+  margin: 1px auto;
   border: 1px solid #f2f2f2;
   box-shadow: 3px 3px 5px rgba(50,50,50,0.1);
   padding: 20px;
@@ -69,6 +74,7 @@
 .transactions .name {
   color: #777;
   font-size: 1.4em;
+  text-align: center;
 }
 .transactions .amount {
   margin-left: auto;
